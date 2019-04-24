@@ -27,8 +27,6 @@ This project features about 9Gb of raw data and around 2Gb of filtered data. As 
 1) Visit <https://git-lfs.github.com/> to install the plugin.
 2) Run these commands in your terminal rooted at the repository:
   - `git lfs install`
-  - `git track "Trajectory_Mining/data/**"`
-  - `git track "Killmail_Fetching/killmail_scrapes/**"`
   - `git track "*.csv"`
 3) Make sure you see `.gitattributes` in the root directory. If it's not there, run
   - `git add .gitattributes`
