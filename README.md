@@ -6,9 +6,7 @@
 
 This application was developed and designed by Adam Coscia.
 
-- University: Stevens Institute of Technology
-- Timeline:   Summer 2018--Spring 2019
-- Advisors:   Dr. Aron Lindberg, Dr. Amir Gandomi
+Before editing, please read this document as well as CONTRIBUTING.md for how to access/modify the files in the repository. Thank you!!
 
 Last Modified: 04/24/2019
 
