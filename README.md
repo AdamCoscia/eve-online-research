@@ -35,7 +35,7 @@ If you need to
   - modify collection routine,
   - or organize FNC and/or dependencies,
   
-then modify the Data Mining Application!
+then modify the Killmail Fetching Application!
   
 If you need to
   - filter raw data,
@@ -56,4 +56,4 @@ Thank you to Dr. Aron Lindberg for allowing me to take on this project and devel
 
 ## License
 
-TODO
+MIT @ Adam Coscia
