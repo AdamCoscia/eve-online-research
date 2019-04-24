@@ -1,10 +1,6 @@
 # The EVE Online Data Manager #
 
-> Designed by Adam Coscia  
-> Stevens Institute of Technology  
-> Summer 2018  
-> Advisor: Dr. Aron Lindberg  
-> Last Modified: *03/21/2019*
+Last Modified: 04/24/2019
 
 -----
 
@@ -44,7 +40,7 @@ group success.
 
 ## Features:
 
-- **/data**
+- *TODO*
 
 ## Installation:
 
@@ -57,29 +53,10 @@ system. Go to http://python.org/ to learn more.
 
 To get started on which file to modify, follow this handy guide!
 
-If you need to...
-- 
-
-Then 
-
-If you need to...
-- 
-
-Then 
-
-If you need to...
-- 
-
-Then 
+- *TODO*
 
 ## Credits:
 
-Designed and Developed exclusively by Adam Coscia  
-Created on 06/10/2018
+Designed and Developed exclusively by Adam Coscia.
 
-Thanks to Dr. Aron Lindberg for allowing me to take on this project and develop
-the tools needed to produce some quality data!
-
-## License:
-
-TODO
+Created: 06/10/2018
