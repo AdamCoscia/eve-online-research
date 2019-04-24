@@ -26,7 +26,7 @@ Last Modified: 04/24/2019
 ## Structure
 
 - Statistics\
-  - *_*models\
+  - \_models\
     - players_frig_actv_invt.csv
     - players_frig_actv_perf.csv
   - cluster\
@@ -34,7 +34,7 @@ Last Modified: 04/24/2019
       - ...
   - dtw\
     - [date]
-      - [evt/prd]*_*[h/l/m]mat_s[#]k[#].csv
+      - [evt/prd] \_ [h/l/m]mat \_ s[#]k[#].csv
       - ...
     - ...
   - pearson\
@@ -47,7 +47,7 @@ Last Modified: 04/24/2019
 
 ## Folders
 
-- ***_models*** (Player Models): Data representing how player strategy and
+- ***\_models*** (Player Models): Data representing how player strategy and
   success is modelled.
 
 - ***cluster*** (Clustered Data): Data that has been clustered.
