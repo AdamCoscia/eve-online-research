@@ -8,6 +8,7 @@ The following is a set of guidelines for contributing to the research project. T
 
 [What should I know before I get started?](#what-should-i-know-before-i-get-started)
   * [Handling Large CSV Files](#handling-large-csv-files)
+    * [When To Upload](#when-to-upload)
     * [Issues](#issues)
   * [Killmail Fetching](#killmail-fetching)
     * [/killmail_scrapes](#killmail-scrapes)
@@ -32,6 +33,12 @@ This project features about 9Gb of raw data and around 2Gb of filtered data. As 
   - `git add .gitattributes`
 
 After performing those steps, you'll be able to fetch/merge/pull/commit/etc. all of the `.csv` files in the repository!
+
+#### When To Upload
+
+When creating/modifying `.csv` files, realize that these files can be (and usually are) ***LARGE***. Large in the context of Github is any file over `100Mb`. Thus, the above plug-in will track all `.csv` files being created and upload them to remote storage to avoid uploading large files directly to the repositoriy's page.
+
+That being said, ***ONLY UPLOAD FILES WHEN YOU ARE CERTAIN YOU WILL BE PRESERVING IT FOR FUTURE PURPOSES***. In other words, store your new/modified `.csv` files ***LOCALLY*** for a while until you are certain that it will be used later. I would give about a few weeks time to wait. There is ***LIMITED*** storage available, so make every upload count!!
 
 #### Issues
 
