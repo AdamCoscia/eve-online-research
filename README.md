@@ -4,11 +4,9 @@
 
 ## EVE Trajectory Mining
 
-This application was developed and designed by Adam Coscia.
+This application was developed and designed by Adam Coscia. Any questions or comments please email <acoscia@stevens.edu>.
 
-- University: Stevens Institute of Technology
-- Timeline:   Summer 2018--Spring 2019
-- Advisors:   Dr. Aron Lindberg, Dr. Amir Gandomi
+Before editing, please read this document as well as [CONTRIBUTING.md](CONTRIBUTING.md) for how to access/modify the files in the repository. Thank you!!
 
 Last Modified: 04/24/2019
 
