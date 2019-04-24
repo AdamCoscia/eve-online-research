@@ -24,7 +24,7 @@ Innovating is a valuable process and often leads to success in many academic,  p
 
 The project was done in two phases:
 
-- Data Mining Application: Built to extract data from <https://www.zkillboard.com>.
+- Killmail Fetching Application: Built to extract data from <https://www.zkillboard.com>.
 - Trajectory Mining Application: Built to extract insights from data.
 
 ## How to use?
