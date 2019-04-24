@@ -6,7 +6,7 @@
 
 This application was developed and designed by Adam Coscia. Any questions or comments please email <acoscia@stevens.edu>.
 
-Before editing, please read this document as well as [CONTRIBUTING.md](contributing.md) for how to access/modify the files in the repository. Thank you!!
+Before editing, please read this document as well as [CONTRIBUTING.md](CONTRIBUTING.md) for how to access/modify the files in the repository. Thank you!!
 
 Last Modified: 04/24/2019
 
