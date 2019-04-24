@@ -1,10 +1,6 @@
-# The EVE Online Data Manager #
+# eve-trajectory-mining #
 
-> Designed by Adam Coscia  
-> Stevens Institute of Technology  
-> Summer 2018  
-> Advisor: Dr. Aron Lindberg  
-> Last Modified: *03/22/2019*
+Last Modified: 04/24/2019
 
 -----
 

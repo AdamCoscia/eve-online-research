@@ -1,34 +1,32 @@
-# The EVE Online Data Manager #
+# eve-trajectory-mining #
 
-> Designed by Adam Coscia  
-> Stevens Institute of Technology  
-> Summer 2018--Spring 2019 
-> Advisor: Dr. Aron Lindberg  
-> Last Modified: *03/21/2019*
+Last Modified: 04/24/2019
 
 -----
 
 ## Dynamic Time Warping ##
 
-	Idea:
-	- Take any two player time series. Compute the optimal pairing of data points
-	  between the two series (multiple pairs allowed). Then figure out how
-	  dissimilar the two series are and give a number representing how well the 
-	  the two series fit together. This can be done for series of different
-	  lengths, with different end points.  
+*Idea:*
 
-	Plan:
-	- Compute pairwise distance matrix for all 2737 time series using DTW
-	  - Cost to match one point to another has to be determined!
-	  - Use all 3 variables (Hi, Mid, Low)??
-	- Cluster the pairwise distance matrix using:  
-	   - Heirarchal Clustering  
-	   - K-mediods  
+- Take any two player time series. Compute the optimal pairing of data points
+  between the two series (multiple pairs allowed). Then figure out how
+  dissimilar the two series are and give a number representing how well the 
+  the two series fit together. This can be done for series of different
+  lengths, with different end points.  
+
+*Plan:*
+
+- Compute pairwise distance matrix for all 2737 time series using DTW
+  - Cost to match one point to another has to be determined!
+  - Use all 3 variables (Hi, Mid, Low)??
+- Cluster the pairwise distance matrix using:  
+   - Heirarchal Clustering  
+   - K-mediods  
 
 ## Structure
 
 - Statistics\
-  - *_*models\
+  - \_models\
     - players_frig_actv_invt.csv
     - players_frig_actv_perf.csv
   - cluster\
@@ -36,7 +34,7 @@
       - ...
   - dtw\
     - [date]
-      - [evt/prd]*_*[h/l/m]mat*_*s[#]k[#].csv
+      - [evt/prd] \_ [h/l/m]mat \_ s[#]k[#].csv
       - ...
     - ...
   - pearson\
@@ -49,7 +47,7 @@
 
 ## Folders
 
-- ***_models*** (Player Models): Data representing how player strategy and
+- ***\_models*** (Player Models): Data representing how player strategy and
   success is modelled.
 
 - ***cluster*** (Clustered Data): Data that has been clustered.
