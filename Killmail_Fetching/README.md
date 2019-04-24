@@ -1,10 +1,4 @@
-# The EVE Online Data Manager #
-
-> Designed by Adam Coscia  
-> Stevens Institute of Technology  
-> Summer 2018  
-> Advisor: Dr. Aron Lindberg  
-> Last Modified: *07/17/2018 @ 12:12*
+# eve-trajectory-mining #
 
 -----
 
@@ -141,12 +135,6 @@ Then modify **/Killmail_Fetching/pipelines.py**!
 
 ## Credits:
 
-Designed and Developed exclusively by Adam Coscia  
-Created on 06/25/2018
+Designed and Developed exclusively by Adam Coscia.
 
-Thanks to Dr. Aron Lindberg for allowing me to take on this project and develop
-the tools needed to produce some quality data!
-
-## License:
-
-TODO
+Created: 06/25/2018
