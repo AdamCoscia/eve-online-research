@@ -1,4 +1,4 @@
-# The EVE Online Data Manager #
+# eve-trajectory-mining #
 
 Last Modified: 04/24/2019
 
