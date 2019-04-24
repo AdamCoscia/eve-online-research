@@ -22,7 +22,7 @@ Please use pull requests for all changes and document everything you do. This in
 
 ### Handling Large CSV Files
 
-This project features about 9Gb of raw data and around 2Gb of filtered data. As such, we chosen to host the data using **Git Large File Storage (Git-LFS)** <https://git-lfs.github.com/>. Installing this plugin is necessary to download/access the `.csv` files. To get started...
+This project features about 9Gb of raw data and around 2Gb of filtered data. As such, we chosen to host the data using **Git Large File Storage (Git-LFS)** <https://help.github.com/en/articles/versioning-large-files>. Installing this plugin is necessary to download/access the `.csv` files. To get started...
 
 1) Visit <https://git-lfs.github.com/> to install the plugin.
 2) Run these commands in your terminal rooted at the repository:
@@ -38,6 +38,7 @@ After performing those steps, you'll be able to fetch/merge/pull/commit/etc. all
 #### Issues
 
 If you have issues using **Git Large File Storage (Git-LFS)**, here are some resouces to guide troubleshooting:
+- Home Page: <https://help.github.com/en/articles/versioning-large-files>
 - Installation: <https://help.github.com/en/articles/configuring-git-large-file-storage>
 - Upload Failure: <https://help.github.com/en/articles/resolving-git-large-file-storage-upload-failures>
 - Storing Existing CSV Files: <https://help.github.com/en/articles/moving-a-file-in-your-repository-to-git-large-file-storage>
