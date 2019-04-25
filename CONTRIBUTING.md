@@ -11,7 +11,7 @@ The following is a set of guidelines for contributing to the research project. T
     * [When To Upload](#when-to-upload)
     * [Issues](#issues)
   * [Killmail Fetching](#killmail-fetching)
-    * [/killmail_scrapes](#killmail-scrapes)
+    * [/killmail_scrapes](#killmail_scrapes)
   * [Trajectory Mining](#trajectory-mining)
     * [/data](#data)
 
