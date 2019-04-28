@@ -50,7 +50,12 @@ def generate_investment_series(dfv: pd.DataFrame):
 
 
 def generate_performance_series(dfa, dfv):
-    """TODO"""
+    """TODO
+
+    :param dfa:
+    :param dfv:
+    :return:
+    """
     # Assign Type column for cumulative sum later
     dfa = dfa.assign(type=pd.Series(['kill' for _ in range(len(dfa))]))
     dfv = dfv.assign(type=pd.Series(['death' for _ in range(len(dfv))]))

@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""CSV File System Merging Script
+"""CSV File System Merging Script.
 
 Merges CSV Files and applies FNC to the project.
 

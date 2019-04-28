@@ -41,6 +41,9 @@ def drop_by_activity(df: pd.DataFrame):
     - KEEP: Player #14235867 has one killmail every other month from 01-2016
       to 12-2017 (24 months). Player has minimum 12 months worth of killmails,
       even though months are not consecutive.
+
+    :param df:
+    :return:
     """
 
     def keep_group(g: pd.DataFrame):
@@ -91,7 +94,11 @@ def drop_by_activity(df: pd.DataFrame):
 
 
 def drop_by_ship_type_id(df: pd.DataFrame):
-    """Drops rows that do not contain specific ship type IDs."""
+    """Drops rows that do not contain specific ship type IDs.
+
+    :param df:
+    :return:
+    """
     ship_type_ids = {583, 584, 585, 587, 589, 591, 593, 594, 597, 598, 602,
                      603, 608, 609, 2161, 2834, 3516, 3532, 3766, 11174, 11176,
                      11178, 11184, 11186, 11190, 11194, 11196, 11198, 11200,
@@ -105,7 +112,12 @@ def drop_by_ship_type_id(df: pd.DataFrame):
 
 
 def drop_attackers_by_character_id(dfv: pd.DataFrame, dfa: pd.DataFrame):
-    """Drops attackers who don't appear in active victims."""
+    """Drops attackers who don't appear in active victims.
+
+    :param dfv:
+    :param dfa:
+    :return:
+    """
     return dfa.drop(dfa[~dfa.character_id.isin(dfv.character_id)].index)
 
 
