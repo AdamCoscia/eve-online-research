@@ -223,21 +223,21 @@ n = len(uids)                                # total number of samples
 k = n//10                                    # sample size
 ids = random.Random(seed).sample(uids, k=k)  # random sample of character ids
 
-# # Calculate cost matrices
-# hmat, mmat, lmat = dtw_matrix(dfts, k=k, seed=seed, ids=ids)
-#
-# # Convert them to DataFrames and name the index
-# dfhm = pd.DataFrame(data=hmat,
-#                     index=ids,
-#                     columns=ids).rename_axis('character_id')
-# dfmm = pd.DataFrame(data=mmat,
-#                     index=ids,
-#                     columns=ids).rename_axis('character_id')
-# dflm = pd.DataFrame(data=lmat,
-#                     index=ids,
-#                     columns=ids).rename_axis('character_id')
-#
-# # Save the new DataFrames!
-# dfhm.to_csv('../data/Series/dtw/2019-04-28/evt-hmat.csv')
-# dfmm.to_csv('../data/Series/dtw/2019-04-28/evt-mmat.csv')
-# dflm.to_csv('../data/Series/dtw/2019-04-28/evt-lmat.csv')
+# Calculate cost matrices
+hmat, mmat, lmat = dtw_matrix(dfts, k=k, seed=seed, ids=ids)
+
+# Convert them to DataFrames and name the index
+dfhm = pd.DataFrame(data=hmat,
+                    index=ids,
+                    columns=ids).rename_axis('character_id')
+dfmm = pd.DataFrame(data=mmat,
+                    index=ids,
+                    columns=ids).rename_axis('character_id')
+dflm = pd.DataFrame(data=lmat,
+                    index=ids,
+                    columns=ids).rename_axis('character_id')
+
+# Save the new DataFrames!
+dfhm.to_csv('../data/Series/dtw/2019-04-28/evt-hmat.csv')
+dfmm.to_csv('../data/Series/dtw/2019-04-28/evt-mmat.csv')
+dflm.to_csv('../data/Series/dtw/2019-04-28/evt-lmat.csv')
