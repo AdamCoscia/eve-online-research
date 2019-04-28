@@ -20,4 +20,6 @@ def create_dgraph():
 
 # ============================================================================ #
 # Use the Command Line or a Terminal to do basic pre-filtering!
-dfts = pd.read_csv('../data/Series/players_frig_actv_ts-evt.csv', header=0)
+dfhm = pd.read_csv('../data/Series/dtw/20190417/evt_hmat_s1k237.csv', header=0)
+dfmm = pd.read_csv('../data/Series/dtw/20190417/evt_mmat_s1k237.csv', header=0)
+dflm = pd.read_csv('../data/Series/dtw/20190417/evt_lmat_s1k237.csv', header=0)
