@@ -25,6 +25,9 @@ from matplotlib.backends.backend_qt5agg import \
 
 
 class ScrollableWindow(QtWidgets.QMainWindow):
+    """Found online, not my own creation. Thank you to whoever wrote this!
+
+    """
     def __init__(self, fig):
         self.qapp = QtWidgets.QApplication([])
 
@@ -50,7 +53,7 @@ class ScrollableWindow(QtWidgets.QMainWindow):
 
 
 def multiple_plots_scrollable(groups, nplots=5, layout=None):
-    """TODO
+    """Plots groups.
 
     :param groups:
     :param nplots:
@@ -80,7 +83,7 @@ def multiple_plots_scrollable(groups, nplots=5, layout=None):
 
 
 def create_poster_graphic(groups, cids, layout=None):
-    """TODO
+    """Poster graphic for BI&A Conference, Fall 2018, Stevens Inst. of Tech.
 
     :param groups:
     :param cids:
@@ -187,7 +190,7 @@ def create_poster_graphic(groups, cids, layout=None):
 
 
 def plot_investment_area_performance(groups, cids, layout=None):
-    """TODO
+    """Plots to examine relationship b/w investment and performance.
 
     :param groups:
     :param cids:
@@ -267,7 +270,8 @@ def plot_investment_area_performance(groups, cids, layout=None):
 
 
 def plot_correlation_distributions(dfc: pd.DataFrame, sharey=True, layout=None):
-    """TODO
+    """Frequency plot of r values for BI&A Conference, Fall 2018, Stevens Inst.
+    of Tech.
 
     :param dfc:
     :param sharey:
@@ -313,7 +317,7 @@ def plot_correlation_distributions(dfc: pd.DataFrame, sharey=True, layout=None):
 
 
 def plot_tseries(groups: pd.DataFrame, cid, layout=None):
-    """TODO
+    """Plots 3x3 graphic of 8 series specific to a single character id (cid).
 
     :param groups:
     :param layout:

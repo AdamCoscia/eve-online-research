@@ -1,5 +1,5 @@
 # -*- coding: utf-8 -*-
-"""Killmail Raw Source Data Cleaning and Re-Formatting Script
+"""Killmail Raw Source Data Cleaning and Re-Formatting Script.
 
 Creates new CSV files from Raw CSV Data with only specific columns and cleans
 unnecessary data from Web APIs scrapes.
@@ -37,6 +37,9 @@ def file_gen(top_dir, out_root):
 
     os.walk -> top-down generator of root, directories, files in tree at top_dir
 
+    :param top_dir:
+    :param out_root:
+    :return:
     """
     for in_root, _, files in os.walk(top_dir):
         for file_name in files:
@@ -47,7 +50,11 @@ def file_gen(top_dir, out_root):
 
 
 def check_type_cast(dataframe):
-    """Check type casting of all important objects in original data"""
+    """Check type casting of all important objects in original data.
+
+    :param dataframe:
+    :return:
+    """
     print(list(dataframe.values)[0])
     print()
     print(list(dataframe['killmail_id'].values)[0])
@@ -92,6 +99,8 @@ def unpack(data: pd.DataFrame):
 
     Iterate over each row of ``data`` using generator and unpack each row.
 
+    :param data:
+    :return:
     """
     def parse_items(items):
         lo_slot = mi_slot = hi_slot = 0
