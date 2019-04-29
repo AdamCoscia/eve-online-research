@@ -128,7 +128,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             # Prints a dot for each correlation performed
             sys.stdout.write('.')
             sys.stdout.flush()
-            if j % 10 == i or j == k:  # write newline every tenth dot
+            if (j % 10 == i % 10) or j == k:  # write newline every tenth dot
                 sys.stdout.write('\n')
         print(f"DEBUG: {i+1}/{k} - HIGH SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
@@ -144,7 +144,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             # Prints a dot for each correlation performed
             sys.stdout.write('.')
             sys.stdout.flush()
-            if j % 10 == i or j == k:  # Write newline every tenth dot
+            if (j % 10 == i % 10) or j == k:  # Write newline every tenth dot
                 sys.stdout.write('\n')
         print(f"DEBUG: {i+1}/{k} - MID SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
@@ -160,7 +160,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             # Prints a dot for each correlation performed
             sys.stdout.write('.')
             sys.stdout.flush()
-            if j % 10 == i or j == k:  # write newline every tenth dot
+            if (j % 10 == i % 10) or j == k:  # write newline every tenth dot
                 sys.stdout.write('\n')
         print(f"DEBUG: {i+1}/{k} - LOW SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
