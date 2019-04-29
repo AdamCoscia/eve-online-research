@@ -88,16 +88,13 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
     n = len(grouped)  # total number of series
 
     # Randomization for batch correlations
-    #   Tests done:
-    #     4/17/19 - seed = 1, k = 237 (10% of total time series)
-
     if seed is None:
         seed = random.random()  # create seed for reproducibility
     if k is None:
-        k = n  # Set sample size to total number of series
+        k = 5  # Set sample size to 5 for a quick test
     if ids is None:
-        uids = dfts.character_id.unique()  # unique character ids
-        ids = random.Random(seed).choices(uids, k=k)
+        uids = list(dfts.character_id.unique())  # unique character ids
+        ids = random.Random(seed).sample(uids, k=k)  # random character ids
     print(f"\tSEED: {seed}\n\tSAMPLE SIZE: {k}")
 
     # Slot Correlation Matrices
@@ -131,7 +128,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             # Prints a dot for each correlation performed
             sys.stdout.write('.')
             sys.stdout.flush()
-            if j % (10+i) == 0 or j == k:
+            if (j % 10 == i % 10) or j == k:  # write newline every tenth dot
                 sys.stdout.write('\n')
         print(f"DEBUG: {i+1}/{k} - HIGH SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
@@ -147,7 +144,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             # Prints a dot for each correlation performed
             sys.stdout.write('.')
             sys.stdout.flush()
-            if j % (10+i) == 0 or j == k:
+            if (j % 10 == i % 10) or j == k:  # Write newline every tenth dot
                 sys.stdout.write('\n')
         print(f"DEBUG: {i+1}/{k} - MID SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
@@ -163,7 +160,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             # Prints a dot for each correlation performed
             sys.stdout.write('.')
             sys.stdout.flush()
-            if j % (10+i) == 0 or j == k:
+            if (j % 10 == i % 10) or j == k:  # write newline every tenth dot
                 sys.stdout.write('\n')
         print(f"DEBUG: {i+1}/{k} - LOW SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
@@ -172,6 +169,14 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
 
 
 def DTWDistance(s1, s2):
+    """Computes Dynamic Time Warping (DTW) cost of aligning series s1 and s2.
+
+    DTWDistance is commutative, i.e., DTWDistance(s1,s2)==DTWDistance(s2,s1).
+
+    :param s1: List of time series observations.
+    :param s2: List of time series observations.
+    :return: Cost of aligning two series.
+    """
     DTW = {}
 
     for i in range(len(s1)):
@@ -200,23 +205,39 @@ dfts = pd.read_csv('../data/Series/players_frig_actv_ts-evt.csv', header=0)
 # s2 = [x for x in g2[['hi_slot']].values.tolist() for x in x]
 # print(DTWDistance(s1, s2))
 
-# Set seed, sample size, and player ids
-seed = 1
-uids = dfts.character_id.unique()  # unique character ids
-n = len(uids)  # total number of samples
-k = n//10  # 10% of total samples
-ids = random.Random(seed).choices(uids, k=k)
+"""
+  Tests - Date: 4/17/19, Seed: 1, K: 237  (UNUSABLE)
+            - k is 10% of total time series
+            - Used random.Random(seed).choices() for sampling method,
+              which samples WITH replacement (oops). Don't use this test.
+          Date: 4/28/19, Seed: 2, K: 237  (CURRENT)
+            - k is (again) 10% of total time series
+            - Switched to random.Random(seed).sample() for sampling
+              method WITHOUT replacement. Much better!
+"""
+
+# Set correlation parameters
+seed = 2                                     # analogous to test number
+uids = list(dfts.character_id.unique())      # unique character ids
+n = len(uids)                                # total number of samples
+k = n//10                                    # sample size
+ids = random.Random(seed).sample(uids, k=k)  # random sample of character ids
 
 # Calculate cost matrices
 hmat, mmat, lmat = dtw_matrix(dfts, k=k, seed=seed, ids=ids)
 
-# Convert them to DataFrames
-idx = dfts.character_id.unique()
-dfhm = pd.DataFrame(data=hmat, index=ids, columns=ids)
-dfmm = pd.DataFrame(data=mmat, index=ids, columns=ids)
-dflm = pd.DataFrame(data=lmat, index=ids, columns=ids)
+# Convert them to DataFrames and name the index
+dfhm = pd.DataFrame(data=hmat,
+                    index=ids,
+                    columns=ids).rename_axis('character_id')
+dfmm = pd.DataFrame(data=mmat,
+                    index=ids,
+                    columns=ids).rename_axis('character_id')
+dflm = pd.DataFrame(data=lmat,
+                    index=ids,
+                    columns=ids).rename_axis('character_id')
 
 # Save the new DataFrames!
-dfhm.to_csv('../data/Series/dtw/evt_hmat_s1k237_20190417.csv')
-dfmm.to_csv('../data/Series/dtw/evt_mmat_s1k237_20190417.csv')
-dflm.to_csv('../data/Series/dtw/evt_lmat_s1k237_20190417.csv')
+dfhm.to_csv('../data/Series/dtw/2019-04-28/evt-hmat.csv')
+dfmm.to_csv('../data/Series/dtw/2019-04-28/evt-mmat.csv')
+dflm.to_csv('../data/Series/dtw/2019-04-28/evt-lmat.csv')
