@@ -11,15 +11,55 @@ Created on: 08/06/2018
 Last Updated: 04/28/2019
 
 """
+import matplotlib.pyplot as plt
+import numpy as np
 import pandas as pd
+from scipy.cluster.hierarchy import ward, dendrogram
+from scipy.spatial.distance import squareform
 
 
-def create_dgraph():
-    return None
+def make_symmetric(dfm: pd.DataFrame):
+    """Converts upper triangular DataFrame dfm to symmetric matrix.
+
+    :param dfm:  Upper Triangular Matrix
+    :return:  Symmetric Matrix
+    """
+    return pd.DataFrame(data=np.triu(dfm.values) + np.triu(dfm.values, 1).T,
+                        index=dfm.index,
+                        columns=dfm.columns)
+
+
+def plot_dendrogram(dfm: pd.DataFrame):
+    """Renders dendrogram after Ward Agglomerative Clustering on distance matrix
+
+    :param dfm:
+    :return:
+    """
+    # make distance matrix symmetric and condensed
+    X = squareform(make_symmetric(dfm).values)
+    # perform ward agglomerative clustering on condensed distance
+    Z = ward(X)
+    # plot dendrogram
+    plt.figure(figsize=(80, 50))
+    dn = dendrogram(
+        Z,
+        labels=dfm.index.values,
+        leaf_font_size=14,
+        leaf_rotation=70
+    )
+    plt.savefig('test')
 
 
 # ============================================================================ #
 # Use the Command Line or a Terminal to do basic pre-filtering!
-dfhm = pd.read_csv('../data/Series/dtw/20190417/evt_hmat_s1k237.csv', header=0)
-dfmm = pd.read_csv('../data/Series/dtw/20190417/evt_mmat_s1k237.csv', header=0)
-dflm = pd.read_csv('../data/Series/dtw/20190417/evt_lmat_s1k237.csv', header=0)
+dfhm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-hmat.csv',
+                   header=0,
+                   index_col=0)
+dfmm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-mmat.csv',
+                   header=0,
+                   index_col=0)
+dflm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-lmat.csv',
+                   header=0,
+                   index_col=0)
+
+plot_dendrogram(dfhm)

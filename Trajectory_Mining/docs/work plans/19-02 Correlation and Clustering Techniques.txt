@@ -42,6 +42,10 @@ Source: <https://stats.stackexchange.com/questions/131281/dynamic-time-warping-c
   Instead, compute a distance matrix using DTW, then run hierarchical 
   clustering such as single-link. In contrast to k-means, the series may even 
   have different length. 
+  
+Source: <https://stackabuse.com/hierarchical-clustering-with-python-and-scikit-learn/>
+
+Source: <http://alexminnaar.com/2014/04/16/Time-Series-Classification-and-Clustering-with-Python.html>
 
 Parameters
 
