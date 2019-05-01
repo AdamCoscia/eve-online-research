@@ -82,6 +82,17 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
     :return:  The High Slot, Mid Slot, and Low Slot correlation matrices in
       2D python list.
     """
+    def track_progress(row, column, end, line_length):
+        """Prints dots to STDOUT to track progress.
+
+        line_length dots are printed, then the column value in parenthesis
+        (representing how many pairs have been correlated) and a newline.
+        """
+        sys.stdout.write('.')
+        sys.stdout.flush()
+        if (row % line_length == column % line_length) or column == end:
+            sys.stdout.write(f"({column})\n")
+
     print("DEBUG: DTW CORRELATIONS STARTED.")
 
     grouped = dfts.groupby('character_id')  # time series groups
@@ -125,11 +136,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             hi_mat[i][j] = DTWDistance(hi1, hi2)
             # hi_mat[i][j], _ = fastdtw(hi1, hi2, dist=euclidean)
             j += 1
-            # Prints a dot for each correlation performed
-            sys.stdout.write('.')
-            sys.stdout.flush()
-            if (j % 10 == i % 10) or j == k:  # write newline every tenth dot
-                sys.stdout.write('\n')
+            track_progress(i, j, k, 10)
         print(f"DEBUG: {i+1}/{k} - HIGH SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
 
@@ -141,11 +148,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             # mid_mat[i][j] = DTWDistance(mid1, mid2)
             mid_mat[i][j], _ = fastdtw(mid1, mid2, dist=euclidean)
             j += 1
-            # Prints a dot for each correlation performed
-            sys.stdout.write('.')
-            sys.stdout.flush()
-            if (j % 10 == i % 10) or j == k:  # Write newline every tenth dot
-                sys.stdout.write('\n')
+            track_progress(i, j, k, 10)
         print(f"DEBUG: {i+1}/{k} - MID SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
 
@@ -157,11 +160,7 @@ def dtw_matrix(dfts: pd.DataFrame, k=None, seed=None, ids=None):
             # lo_mat[i][j] = DTWDistance(lo1, lo2)
             lo_mat[i][j], _ = fastdtw(lo1, lo2, dist=euclidean)
             j += 1
-            # Prints a dot for each correlation performed
-            sys.stdout.write('.')
-            sys.stdout.flush()
-            if (j % 10 == i % 10) or j == k:  # write newline every tenth dot
-                sys.stdout.write('\n')
+            track_progress(i, j, k, 10)
         print(f"DEBUG: {i+1}/{k} - LOW SLOT - PLAYER {ids[i]} CORRELATED.")
         i += 1
 
