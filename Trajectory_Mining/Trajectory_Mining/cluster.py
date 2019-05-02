@@ -14,52 +14,120 @@ Last Updated: 04/28/2019
 import matplotlib.pyplot as plt
 import numpy as np
 import pandas as pd
-from scipy.cluster.hierarchy import ward, dendrogram
+from scipy.cluster.hierarchy import linkage, dendrogram
 from scipy.spatial.distance import squareform
 
 
-def make_symmetric(dfm: pd.DataFrame):
-    """Converts upper triangular DataFrame dfm to symmetric matrix.
+def plot_dendrogram(Z: np.ndarray, lbls=None, nclusters=0, fname=None):
+    """Renders dendrogram after Agglomerative Clustering on distance matrix.
 
-    :param dfm:  Upper Triangular Matrix
-    :return:  Symmetric Matrix
-    """
-    return pd.DataFrame(data=np.triu(dfm.values) + np.triu(dfm.values, 1).T,
-                        index=dfm.index,
-                        columns=dfm.columns)
-
-
-def plot_dendrogram(dfm: pd.DataFrame):
-    """Renders dendrogram after Ward Agglomerative Clustering on distance matrix
-
-    :param dfm:
+    :param Z:  Linkage array describing clusters formed from
+    :param lbls:
     :return:
     """
-    # make distance matrix symmetric and condensed
-    X = squareform(make_symmetric(dfm).values)
-    # perform ward agglomerative clustering on condensed distance
-    Z = ward(X)
-    # plot dendrogram
-    plt.figure(figsize=(80, 50))
+    fw = 80   # default figure width
+    fh = 50   # default figure height
+    tfs = 80  # default title fontsize
+    xfs = 60  # default xlabel fontsize
+    yfs = 60  # default ylabel fontsize
+    lfs = 20  # default label fontsize
+
+    # Set parameters for (non)truncation
+    if nclusters == 0:
+        ttl = 'Hierarchical Clustering Dendrogram (non-truncated)'
+        mode = None
+        trunc = False
+    else:
+        ttl = 'Hierarchical Clustering Dendrogram (truncated)'
+        mode = 'lastp'
+        trunc = True
+
+    if lbls is None:
+        xlbl = 'Indices (or cluster size)'
+    else:
+        xlbl = 'Character IDs (or cluster size)'
+
+    # Set figure parameters
+    fig = plt.figure(figsize=(fw, fh))
+    plt.title(ttl, fontsize=tfs)
+    plt.xlabel(xlbl, fontsize=xfs)
+    plt.ylabel('Distance', fontsize=yfs)
+    fig.get_axes()[0].tick_params('y', labelsize=50)
+
+    # Plot dendrogram
     dn = dendrogram(
         Z,
-        labels=dfm.index.values,
-        leaf_font_size=14,
-        leaf_rotation=70
+        labels=lbls,
+        leaf_font_size=lfs,
+        leaf_rotation=70,
+        truncate_mode=mode,  # show only the last p merged clusters
+        p=nclusters,  # show only the last p merged clusters
+        show_contracted=trunc
     )
-    plt.savefig('test')
+
+    # show the plot or save the figure
+    plt.grid()
+    res = 125
+    if fname is None:
+        plt.show()
+    else:
+        plt.savefig(fname, dpi=res)
+
+
+def generate_linkage(dfm: pd.DataFrame, method=None):
+    """Generates Linkage Matrix describing agglomerative clusters formed.
+
+    <https://joernhees.de/blog/2015/08/26/scipy-hierarchical-clustering-and-dendrogram-tutorial/>
+
+    :param dfm:
+    :param method:
+    :return:
+    """
+    def make_symmetric(dfm: pd.DataFrame):
+        """Converts upper triangular DataFrame dfm to symmetric matrix.
+
+        :param dfm:  Upper Triangular Matrix
+        :return:  Symmetric Matrix
+        """
+        return pd.DataFrame(data=np.triu(dfm.values) + np.triu(dfm.values, 1).T,
+                            index=dfm.index,
+                            columns=dfm.columns)
+
+    # make distance matrix symmetric, then condensed
+    X = squareform(make_symmetric(dfm).values)
+
+    # perform agglomerative clustering on condensed distance
+    if method is None:
+        Z = linkage(X)
+    else:
+        Z = linkage(X, method=method)
+
+    return Z
 
 
 # ============================================================================ #
 # Use the Command Line or a Terminal to do basic pre-filtering!
+
+# Read in Distance Matrices
 dfhm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-hmat.csv',
                    header=0,
                    index_col=0)
-dfmm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-mmat.csv',
-                   header=0,
-                   index_col=0)
-dflm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-lmat.csv',
-                   header=0,
-                   index_col=0)
+# dfmm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-mmat.csv',
+#                    header=0,
+#                    index_col=0)
+# dflm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-lmat.csv',
+#                    header=0,
+#                    index_col=0)
 
-plot_dendrogram(dfhm)
+# Perform Ward Linkage on cost matrices
+Zh = generate_linkage(dfhm, method='ward')
+# Zm = generate_linkage(dfmm, method='ward')
+# Zl = generate_linkage(dflm, method='ward')
+
+# Plot dendrograms of each cost matrix correlated
+plot_dendrogram(Zh,
+                lbls=dfhm.index.values,
+                nclusters=64,
+                fname='64_clusters')
+# plot_dendrogram(Zm, lbls=dfmm.index.values)
+# plot_dendrogram(Zl, lbls=dflm.index.values)
