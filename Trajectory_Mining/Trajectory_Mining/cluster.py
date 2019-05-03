@@ -18,11 +18,15 @@ from scipy.cluster.hierarchy import linkage, dendrogram
 from scipy.spatial.distance import squareform
 
 
-def plot_dendrogram(Z: np.ndarray, lbls=None, nclusters=0, fname=None):
+def plot_dendrogram(Z: np.ndarray, ttl=None, lbls=None, nclusters=0,
+                    fname=None):
     """Renders dendrogram after Agglomerative Clustering on distance matrix.
 
-    :param Z:  Linkage array describing clusters formed from
+    :param Z:
+    :param ttl:
     :param lbls:
+    :param nclusters:
+    :param fname:
     :return:
     """
     fw = 80   # default figure width
@@ -30,15 +34,17 @@ def plot_dendrogram(Z: np.ndarray, lbls=None, nclusters=0, fname=None):
     tfs = 80  # default title fontsize
     xfs = 60  # default xlabel fontsize
     yfs = 60  # default ylabel fontsize
-    lfs = 20  # default label fontsize
+    lfs = 20   # default label fontsize
 
     # Set parameters for (non)truncation
     if nclusters == 0:
-        ttl = 'Hierarchical Clustering Dendrogram (non-truncated)'
+        if ttl is None:
+            ttl = 'Hierarchical Clustering Dendrogram (non-truncated)'
         mode = None
         trunc = False
     else:
-        ttl = 'Hierarchical Clustering Dendrogram (truncated)'
+        if ttl is None:
+            ttl = 'Hierarchical Clustering Dendrogram (truncated)'
         mode = 'lastp'
         trunc = True
 
@@ -112,22 +118,38 @@ def generate_linkage(dfm: pd.DataFrame, method=None):
 dfhm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-hmat.csv',
                    header=0,
                    index_col=0)
-# dfmm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-mmat.csv',
-#                    header=0,
-#                    index_col=0)
-# dflm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-lmat.csv',
-#                    header=0,
-#                    index_col=0)
+dfmm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-mmat.csv',
+                   header=0,
+                   index_col=0)
+dflm = pd.read_csv('../data/Series/dtw/2019-04-28/evt-lmat.csv',
+                   header=0,
+                   index_col=0)
 
 # Perform Ward Linkage on cost matrices
 Zh = generate_linkage(dfhm, method='ward')
-# Zm = generate_linkage(dfmm, method='ward')
-# Zl = generate_linkage(dflm, method='ward')
+Zm = generate_linkage(dfmm, method='ward')
+Zl = generate_linkage(dflm, method='ward')
 
 # Plot dendrograms of each cost matrix correlated
-plot_dendrogram(Zh,
-                lbls=dfhm.index.values,
-                nclusters=64,
-                fname='64_clusters')
-# plot_dendrogram(Zm, lbls=dfmm.index.values)
-# plot_dendrogram(Zl, lbls=dflm.index.values)
+k = 64
+plot_dendrogram(
+    Zh,
+    ttl='High-Slot Hierarchical Clustering Dendrogram (truncated)',
+    lbls=dfhm.index.values,
+    nclusters=k,
+    fname=f'../visuals/clustering_plots/dendrograms/hi_slot/{k}_clusters'
+)
+plot_dendrogram(
+    Zm,
+    ttl='Mid-Slot Hierarchical Clustering Dendrogram (truncated)',
+    lbls=dfmm.index.values,
+    nclusters=k,
+    fname=f'../visuals/clustering_plots/dendrograms/mid_slot/{k}_clusters'
+)
+plot_dendrogram(
+    Zl,
+    ttl='Low-Slot Hierarchical Clustering Dendrogram (truncated)',
+    lbls=dflm.index.values,
+    nclusters=k,
+    fname=f'../visuals/clustering_plots/dendrograms/lo_slot/{k}_clusters'
+)
