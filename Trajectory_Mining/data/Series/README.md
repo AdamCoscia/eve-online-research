@@ -25,7 +25,7 @@ Last Modified: 04/24/2019
 
 ## Structure
 
-- Statistics\
+- Series\
   - \_models\
     - players_frig_actv_invt.csv
     - players_frig_actv_perf.csv
@@ -34,9 +34,8 @@ Last Modified: 04/24/2019
       - ...
   - dtw\
     - [date]
-      - [evt/prd] \_ [h/l/m]mat \_ s[#]k[#].csv
+      - [evt/prd]-[h/l/m]mat.csv
       - ...
-    - ...
   - pearson\
     - players_frig_actv_corr.csv
     - players_frig_actv_dstats.csv
@@ -61,22 +60,20 @@ Last Modified: 04/24/2019
 
 - ***pearson*** (Pearson Correlation): Analysis done pairwise using Pearson
   Correlation statistics.
-
-## Entities
   
 ## Filters
 
 - **invt** (Investments): Filtered data that has generated an additional
-column which represents how the player has invested their ISK across their 
-ship's slots. This investment strategy represents how the player is managing
-their career. This column is a time series of player progession, with each 
-killmail and time being an observation in the series.
+  column which represents how the player has invested their ISK across their 
+  ship's slots. This investment strategy represents how the player is managing
+  their career. This column is a time series of player progession, with each 
+  killmail and time being an observation in the series.
 
 - **perf** (Performance): Filtered data that tracks all player's kills,
-deaths, and kill/death ratio as a function of time. The observations are the 
-killmails that the player was involved in, either earning a kill (the 
-player was in the "attacker" section of the killmail), or earning a death 
-(the player was the victim of the killmail).
+  deaths, and kill/death ratio as a function of time. The observations are the 
+  killmails that the player was involved in, either earning a kill (the 
+  player was in the "attacker" section of the killmail), or earning a death 
+  (the player was the victim of the killmail).
 
 - **ts** (Time Series): Investment and Performance datasets are joined on 
   the performance series and investment series holes are forward filled. This is
@@ -102,11 +99,13 @@ player was in the "attacker" section of the killmail), or earning a death
         next valid observation.
 
 - **corr** (Correlation): Correlation between performance series (k/d ratio)
-and each investment series (slots and offensive investment) for each player.
+  and each investment series (slots and offensive investment) for each player.
 
 - **dstats** (Descriptive Statistics): Includes **corr** data. Descriptive 
-statistics (mean, std, etc.) on each series are calculated per player.
+  statistics (mean, std, etc.) on each series are calculated per player.
 
-- **TODO**
-
-- **TODO**
+- **[h/m/l]mat** (High/Mid/Low Slot Matrix): Pairwise Correlation Matricies.
+  Rows/Columns are same-ordered list of players being correlated, with the
+  kth row and column being the same player for all rows/columns. Thus, any
+  given row-column entry is the correlation between the players listed in the
+  row and column of that entry.

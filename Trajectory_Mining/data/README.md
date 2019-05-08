@@ -53,7 +53,7 @@ Any files that don't follow this semantic are explicitly described below.
     - victims.csv  
     - victims_frig.csv  
     - victims_frig_actv.csv  
-  - Statistics\
+  - Series\
     - *_*models\
       - ...
     - dtw\
