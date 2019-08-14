@@ -101,3 +101,25 @@ Designed and Developed exclusively by Nicholas Marina.
 
 Created: 8/14/2019
 
+Citations:
+
+  Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
+  (2019). dplyr: A Grammar of Data Manipulation. R package version
+  0.8.3. https://CRAN.R-project.org/package=dplyr
+
+  Hadley Wickham (2019). stringr: Simple, Consistent Wrappers for
+  Common String Operations. R package version 1.4.0.
+  https://CRAN.R-project.org/package=stringr
+
+  Giorgino T (2009). “Computing and Visualizing Dynamic Time Warping
+  Alignments in R: The dtw Package.” _Journal of Statistical Software_,
+  *31*(7), 1-24. <URL: http://www.jstatsoft.org/v31/i07/>.
+
+  Studer, Matthias (2013). WeightedCluster Library Manual: A practical
+  guide to creating typologies of trajectories in the social sciences
+  with R. LIVES Working Papers, 24. DOI:
+  10.12682/lives.2296-1658.2013.24.
+
+  Maechler, M., Rousseeuw, P., Struyf, A., Hubert, M., Hornik,
+  K.(2019).  cluster: Cluster Analysis Basics and Extensions. R package
+  version 2.1.0.
