@@ -58,38 +58,38 @@ system. Go to http://r-project.org/ to learn more.
 
 To get started on which file to modify, follow this handy guide!
 
-- Run the Bash script 'directory_setup.sh' to create all necessary directories 
+- Run the Bash script `directory_setup.sh` to create all necessary directories 
   (R doesn't create direcories by default) and copy the necessary data from the
   Trajectory_Mining directory.
-- The 'activity.R' script will separate players based on how many time series 
+- The `activity.R` script will separate players based on how many time series 
   points they have. The results of this script were not used in later scripts, 
   but it may be useful for modifications to this directory.
-- The 'dtw.R' script will compute a distance matrix using the best Dyanamic Time 
+- The `dtw.R` script will compute a distance matrix using the best Dyanamic Time 
   Warping (DTW) fit. This script by default will use time series transformed to 
-  percentage form using the 'percent.R' script. If you wish to use it with its 
-  default settings, run 'percent.R' first. Otherwise, feel free to modify the 
+  percentage form using the `percent.R` script. If you wish to use it with its 
+  default settings, run `percent.R` first. Otherwise, feel free to modify the 
   script on your own clone of the repo to use a different set of time series.
-- The 'hcluster.R' and 'kmedoids.R' will cluster players based on the distance
-  matrices computed by 'dtw.R' using hierarchical and k-medoids clustering 
+- The `hcluster.R` and `medoids.R` will cluster players based on the distance
+  matrices computed by `dtw.R` using hierarchical and k-medoids clustering 
   algorithms, respectively. Both scripts create graphs of cluster quality, and
-  'hcluster.R' creates dendrograms.
-- The 'gower.R' script will then perform hierarchical clustering based on clusters
+  `hcluster.R` creates dendrograms.
+- The `gower.R` script will then perform hierarchical clustering based on clusters
   produced for low, mid, and high slot investments, using Gower's distance metric 
   for categorical data. By default, this script will use the ideal number of 
   clusters from the k-medoids clustering, but feel free to modify the script on your 
   own clone to use a different method or number of clusters.
-- The 'playerstats.R' script will compute statistics for each player based on his
-  or her time series data. The 'clusterstats.R' script will average these statistics
-  for each cluster. The 'playerstats.R' script by default includes the clusters
-  produced by 'gower.R' in the csv file produced, which will then be the clusters used 
-  by 'clusterstats.R' for averaging. To compute average statistics for different 
-  clusters, either modify 'playerstats.R' or the resulting 'player_stats.csv' file 
+- The `playerstats.R` script will compute statistics for each player based on his
+  or her time series data. The `clusterstats.R` script will average these statistics
+  for each cluster. The `playerstats.R` script by default includes the clusters
+  produced by `gower.R` in the csv file produced, which will then be the clusters used 
+  by '`clusterstats.R` for averaging. To compute average statistics for different 
+  clusters, either modify `playerstats.R` or the resulting `player_stats.csv` file 
   on your own clone of the repo.
-- The 't-test.R' will perform t-tests for each statistic computed by 'playerstats.R' 
-  for each cluster. It stores the t-test p-values in a 'distance matrix' format, in
-  which the element in the ith row and jth column is the p-value for the t-test for
-  cluster i and j.
-- The 'activity.R', 'trajectory_graphs.R', and 'slot_trajectory_graphs.R' scripts all 
+- The `t-test.R` will perform t-tests for each statistic computed by `playerstats.R` 
+  for each cluster. It stores the t-test p-values in a "distance matrix" format (ie. 
+  the element in the i<sup>th</sup> row and j<sup>th</sup> column is the p-value for 
+  the t-test for cluster i and j.
+- The `activity.R`, `trajectory_graphs.R`, and `slot_trajectory_graphs.R` scripts all 
   produce visuals for the clusters. These scripts are designed for the clusters produced 
   by running the scripts unedited, so this script may need to be adjusted to produce 
   legible visuals if other scripts are modified.
