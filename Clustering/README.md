@@ -1,10 +1,10 @@
-# Clustering #
+# eve-trajectory-mining #
 
 Last Modified: 08/14/2019
 
 -----
 
-## Trajectory Mining Application
+## Clustering Application
 
 The scripts in this directory are designed to cluster time series data collected 
 from Zkillboard in the Killmail Fetching directory, and perform basic statistical 
@@ -100,6 +100,8 @@ To get started on which file to modify, follow this handy guide!
 Designed and Developed exclusively by Nicholas Marina.
 
 Created: 8/14/2019
+
+Time Series data used was collected using scripts contained in the Trajectory_Mining and Killmail_Fetching directories. Both were Designed and Developed exclusively by Adam Coscia.
 
 Packages Used:
 
