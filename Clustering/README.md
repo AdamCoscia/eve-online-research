@@ -101,7 +101,7 @@ Designed and Developed exclusively by Nicholas Marina.
 
 Created: 8/14/2019
 
-Citations:
+Packages Used:
 
   Hadley Wickham, Romain François, Lionel Henry and Kirill Müller
   (2019). dplyr: A Grammar of Data Manipulation. R package version
