@@ -101,7 +101,7 @@ Designed and Developed exclusively by Nicholas Marina.
 
 Created: 8/14/2019
 
-Time Series data used was collected using scripts contained in the Trajectory_Mining and Killmail_Fetching directories. Both were Designed and Developed exclusively by Adam Coscia.
+Time Series data used were collected using scripts contained in the Trajectory_Mining and Killmail_Fetching directories. Both were Designed and Developed exclusively by Adam Coscia.
 
 Packages Used:
 
