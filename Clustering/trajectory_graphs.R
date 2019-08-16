@@ -1,10 +1,10 @@
 # Visualizes trajectories to demonstrate differences between the clusters.
 #
-# Utilizes the []
+# Utilizes the stringr and stats packages
 #
 # Created By: Nicholas Marina
 # Created On: 07/23/19
-# Last Updated: 07/23/19
+# Last Updated: 08/16/19
 
 library(stringr)
 library(stats)
