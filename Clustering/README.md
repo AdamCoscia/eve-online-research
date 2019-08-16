@@ -1,6 +1,6 @@
 # eve-trajectory-mining #
 
-Last Modified: 08/14/2019
+Last Modified: 08/16/2019
 
 -----
 
@@ -41,7 +41,7 @@ detailed insight into the strategy utilized by players in a given cluster.
 - `stringr 1.4.0`
 - `dtw 1.20-1`
 - `WeightedCluster 1.4`
-- `cluster 2.1.0`
+- `StatMatch 1.3.0`
 
 ## Features:
 
@@ -122,6 +122,7 @@ Packages Used:
   with R. LIVES Working Papers, 24. DOI:
   10.12682/lives.2296-1658.2013.24.
 
-  Maechler, M., Rousseeuw, P., Struyf, A., Hubert, M., Hornik,
-  K.(2019).  cluster: Cluster Analysis Basics and Extensions. R package
-  version 2.1.0.
+  Marcello D'Orazio (2019). StatMatch: Statistical Matching or Data
+  Fusion. R package version 1.3.0.
+  https://CRAN.R-project.org/package=StatMatch
+
