@@ -5,8 +5,8 @@
 # Learn more at https://cran.r-project.org/web/packages/StatMatch/index.html
 #
 # Created By: Nicholas Marina
-# Created On: 7/22/19
-# Last Updated: 7/22/19
+# Created On: 07/22/2019
+# Last Updated: 08/16/2019
 
 library(dplyr)
 library(stringr)
