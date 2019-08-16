@@ -1,10 +1,10 @@
 # Takes average values of stats calculated by r_playerstats.R for each cluster.
 #
-# Utilizes the []
+# Utilizes the dplyr and stringr packages
 #
 # Created By: Nicholas Marina
 # Created On: 6/20/19
-# Last Updated: 6/20/19
+# Last Updated: 8/16/19
 
 library(dplyr)
 library(stringr)
