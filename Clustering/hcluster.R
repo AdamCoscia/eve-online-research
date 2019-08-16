@@ -1,6 +1,7 @@
 # Takes distance matrices computed by dtw.R and computes hierarchal clusterings, and graphs cluster quality as a function of number of clusters
 #
-# Utilizes the []
+# Utilizes the dplyr, stringr, and WeightedCluster packages
+# Learn more at https://cran.r-project.org/web/packages/WeightedCluster/index.html
 #
 # Created By: Nicholas Marina
 # Created On: 07/20/19
