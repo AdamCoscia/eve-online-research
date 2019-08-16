@@ -3,8 +3,8 @@
 # Utilizes the dplyr and stringr packages
 #
 # Created By: Nicholas Marina
-# Created On: 07/11/19
-# Last Updated: 08/16/19
+# Created On: 07/11/2019
+# Last Updated: 08/16/2019
 
 library(dplyr)
 library(stringr)
