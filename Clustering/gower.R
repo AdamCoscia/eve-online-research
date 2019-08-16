@@ -1,7 +1,8 @@
 # Clusters nominal values based on kmedoids clustering of each slot trajectory using hierarchical clustering with Gower distance. 
 # The number of clusters should be where quality of clustering is maximized.
 #
-# Utilizes the []
+# Utilizes the dplyr, stringr, and StatMatch packages
+# Learn more at https://cran.r-project.org/web/packages/StatMatch/index.html
 #
 # Created By: Nicholas Marina
 # Created On: 7/22/19
@@ -10,7 +11,6 @@
 library(dplyr)
 library(stringr)
 library(StatMatch)
-library(WeightedCluster)
 
 # Variables determine the number of clusters to use for low, mid, and high slots for easy adjustment
 l_clusters <- 2
