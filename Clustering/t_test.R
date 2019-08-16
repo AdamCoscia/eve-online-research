@@ -1,3 +1,11 @@
+# Visualizes trajectories to demonstrate differences between the clusters.
+#
+# Utilizes the dplyr and stringr packages
+#
+# Created By: Nicholas Marina
+# Created On: 07/23/19
+# Last Updated: 08/16/19
+
 library(dplyr)
 library(stringr)
 
