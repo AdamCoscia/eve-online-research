@@ -4,8 +4,8 @@
 # Learn more at http://dtw.r-forge.r-project.org/
 #
 # Created By: Nicholas Marina
-# Created On: 7/5/19
-# Last Updated: 8/16/19
+# Created On: 07/05/2019
+# Last Updated: 08/16/2019
 
 library(dplyr)
 library(stringr)
