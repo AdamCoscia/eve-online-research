@@ -1,10 +1,10 @@
 # Creates scatter plots of each slot cluster to illustrate their meaning
 #
-# Utilizes the []
+# Utilizes the stringr package
 #
 # Created By: Nicholas Marina
-# Created On: 7/31/19
-# Last Updated: 7/31/19
+# Created On: 07/31/19
+# Last Updated: 08/16/19
 
 library(stringr)
 
