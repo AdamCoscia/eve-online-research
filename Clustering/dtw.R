@@ -1,10 +1,11 @@
 # Creates a distance matrix for all player time series using the DTW algorithm for each slot
 #
-# Utilizes the []
+# Utilizes the dplyr, stringr, and dtw packages
+# Learn more at http://dtw.r-forge.r-project.org/
 #
 # Created By: Nicholas Marina
 # Created On: 7/5/19
-# Last Updated: 7/5/19
+# Last Updated: 8/16/19
 
 library(dplyr)
 library(stringr)
