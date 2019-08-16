@@ -1,10 +1,10 @@
 # Converts time series from investment amounts to percentages for each slot
 #
-# Utilizes the []
+# Utilizes the dplyr package
 #
 # Created By: Nicholas Marina
-# Created On: 7/5/19
-# Last Updated: 7/5/19
+# Created On: 07/05/19
+# Last Updated: 08/16/19
 
 library(dplyr)
 
