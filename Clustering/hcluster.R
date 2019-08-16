@@ -4,8 +4,8 @@
 # Learn more at https://cran.r-project.org/web/packages/WeightedCluster/index.html
 #
 # Created By: Nicholas Marina
-# Created On: 07/20/19
-# Last Updated: 07/20/19
+# Created On: 07/20/2019
+# Last Updated: 07/20/2019
 
 library(dplyr)
 library(stringr)
