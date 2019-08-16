@@ -3,8 +3,8 @@
 # Utilizes the stringr package
 #
 # Created By: Nicholas Marina
-# Created On: 07/31/19
-# Last Updated: 08/16/19
+# Created On: 07/31/2019
+# Last Updated: 08/16/2019
 
 library(stringr)
 
