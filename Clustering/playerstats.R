@@ -1,10 +1,10 @@
 # Gathers time series data for players and averages the statistics gathered for each cluster.
 # 
-# Utilizes the []
+# Utilizes the dplyr and stringr packages
 # 
 # Created By: Nicholas Marina
-# Created On: 7/22/19
-# Last Updated: 7/22/19
+# Created On: 07/22/19
+# Last Updated: 08/16/19
 
 library(dplyr)
 library(stringr)
