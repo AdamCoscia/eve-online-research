@@ -3,8 +3,8 @@
 # Utilizes the stringr and stats packages
 #
 # Created By: Nicholas Marina
-# Created On: 07/23/19
-# Last Updated: 08/16/19
+# Created On: 07/23/2019
+# Last Updated: 08/16/2019
 
 library(stringr)
 library(stats)
