@@ -4,7 +4,7 @@
 # Learn more at https://cran.r-project.org/web/packages/WeightedCluster/index.html
 #
 # Created By: Nicholas Marina
-# Created On: 06/04/2019
+# Created On: 07/20/2019
 # Last Updated: 08/16/2019
 
 library(dplyr)
