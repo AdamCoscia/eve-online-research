@@ -1,6 +1,6 @@
 # Creates filled area plots for overall average investment percentages
 #
-# Utilizes the stringr library
+# Utilizes the stringr package
 #
 # Created By: Nicholas Marina
 # Created On: 8/1/19
