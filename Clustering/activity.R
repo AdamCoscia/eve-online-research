@@ -1,10 +1,10 @@
 # Separates players into three groups based on activity
 #
-# Utilizes the []
+# Utilizes the dplyr and stringr packages
 #
 # Created By: Nicholas Marina
 # Created On: 7/11/19
-# Last Updated: 7/11/19
+# Last Updated: 8/16/19
 
 library(dplyr)
 library(stringr)
