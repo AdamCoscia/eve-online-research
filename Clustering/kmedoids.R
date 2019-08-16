@@ -1,10 +1,11 @@
 # Clusters from distance matrix computed by dtw.R in a data structure easily usable in R, using k medoids clustering.
 #
-# Utilizes the []
+# Utilizes the dplyr, stringr, and WeightedCluster packages
+# Learn more at https://cran.r-project.org/web/packages/WeightedCluster/index.html
 #
 # Created By: Nicholas Marina
 # Created On: 06/04/19
-# Last Updated: 06/04/19
+# Last Updated: 08/16/19
 
 library(dplyr)
 library(stringr)
