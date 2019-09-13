@@ -4,7 +4,7 @@
 #
 # Created By: Nicholas Marina
 # Created On: 07/22/2019
-# Last Updated: 08/16/2019
+# Last Updated: 09/12/2019
 
 library(dplyr)
 library(stringr)
@@ -21,10 +21,12 @@ low <- list(avg=0, std=0, skew=0, slope=0, slope_std=0, prefix='low_')
 mid <- list(avg=0, std=0, skew=0, slope=0, slope_std=0, prefix='mid_')
 high <- list(avg=0, std=0, skew=0, slope=0, slope_std=0, prefix='high_')
 stats <- list(kd, low, mid, high)
+count <- c()
 
 # Averages for each cluster are calculated and stored in the lists iteratively.
 for(i in cluster){
 	clusterstats <- filter(playerstats, cluster == i)
+	count[i] <- length(clusterstats$cluster)
 	for(j in 1:4){
 		pref <- stats[[j]]$prefix
 		avg_list <- clusterstats[,paste(pref, 'avg', sep='')]
@@ -42,6 +44,7 @@ for(i in cluster){
 
 # Stats are then placed in a dataframe.
 clust_stats <- data.frame(cluster)
+clust_stats$count <- count
 for(i in 1:4){
 	pref <- stats[[i]]$prefix
 	clust_stats[,paste(pref, 'avg', sep='')] <- stats[[i]]$avg
@@ -53,4 +56,3 @@ for(i in 1:4){
 
 # The data frame is then saved as an csv file.
 write.csv(clust_stats, file='data/cluster_stats.csv')
-
