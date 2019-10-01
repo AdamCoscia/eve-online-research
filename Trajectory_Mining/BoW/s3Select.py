@@ -1,4 +1,3 @@
-#!~/usr/bin/py
 # -*- coding: utf-8 -*-
 """Module providing pre-built s3 bucket api select request function.
 
@@ -74,13 +73,13 @@ def select(bucket, key, query, inputFormat='CSV', outputFormat='CSV',
 if __name__ == "__main__":
     # Specify parameters here
     bucket='dilabevetrajectorymining'
-    key='eve-trajectory-mining/Trajectory_Mining/data/Series/players_frig_actv_ts-evt.csv'
+    key='eve-trajectory-mining/Killmail_Fetching/killmail_scrapes/byregion/10000002/10000002201505.csv'
 
     # Write SQL query here
     query="""
     SELECT * 
       FROM s3Object s
-     LIMIT 5
+     LIMIT 2
     """
 
     # Let amazon do the api calls
@@ -88,4 +87,4 @@ if __name__ == "__main__":
 
     # Now use the dataframe you got from your SQL query
     pd.options.display.max_columns = len(df.columns)
-    print(df)
+    print(df['victim'].loc[0])

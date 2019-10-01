@@ -10,13 +10,30 @@ Written By: Adam Coscia
 Updated On: 09/30/2019
 
 """
+print('Importing modules...')
+
 from ast import literal_eval
 import os
 import sys
 
 import pandas as pd
+import yaml
 
 from s3Select import select
+
+
+def load_yaml(file_loc, encoding='utf-8'):
+    """Loads yaml file at file_loc and returns Python object based on yaml
+    structure.
+
+    """
+    data = None
+    with open(file_loc, 'r', encoding=encoding) as stream:
+        try:
+            data = yaml.safe_load(stream)
+        except yaml.YAMLError as exc:
+            print(exc)
+    return data
 
 
 def unpack(data: pd.DataFrame):
@@ -26,24 +43,31 @@ def unpack(data: pd.DataFrame):
     """
     def parse_items(items):
         # Use sets for faster look-up time (no order needed to preserve)
-        lo_flags = {11, 12, 13, 14, 15, 16, 17, 18}
-        mi_flags = {19, 20, 21, 22, 23, 24, 25, 26}
-        hi_flags = {27, 28, 29, 30, 31, 32, 33, 34}
-        # Initialize slot values to zero
-        lo_slot, mi_slot, hi_slot = 0, 0, 0
+        # lo_flags = {11, 12, 13, 14, 15, 16, 17, 18}
+        # mi_flags = {19, 20, 21, 22, 23, 24, 25, 26}
+        # hi_flags = {27, 28, 29, 30, 31, 32, 33, 34}
+        itemList=[]
         for item in items:
+            itemName, groupName = 'Missing', 'Missing'
             try:
-                if item['flag'] in lo_flags:
-                    lo_slot += item['total_price']
-                elif item['flag'] in mi_flags:
-                    mi_slot += item['total_price']
-                elif item['flag'] in hi_flags:
-                    hi_slot += item['total_price']
-            except (KeyError, TypeError, ValueError):
+                item_type_id = item['item_type_id']
+                try:
+                    item_group_id = typeIDs[item_type_id]['groupID']
+                    try:
+                        itemName = typeIDs[item_type_id]['name']['en']
+                        try:
+                            groupName = groupIDs[item_group_id]['name']['en']
+                        except:
+                            pass
+                    except:
+                        pass
+                except:
+                    pass
+            except:
                 pass
-        yield lo_slot
-        yield mi_slot
-        yield hi_slot
+            finally:
+                itemList.append((itemName, groupName))
+        return itemList
 
     def parse_attackers(attackers):
         attacker_keys = ('final_blow', 'damage_done', 'ship_type_id')
@@ -71,11 +95,9 @@ def unpack(data: pd.DataFrame):
                 victim_row.append(np.nan)
             # Try to add item info to victim values if exists
             if 'items' in row.victim and row.victim['items']:
-                victim_row.extend(
-                    [slot for slot in parse_items(row.victim['items'])]
-                )
+                victim_row.append(parse_items(row.victim['items']))
             else:
-                victim_row.extend([0 for _ in range(3)])  # Fill with 0
+                victim_row.append([])  # keep empty array
         else:
             victim_row = None
         if 'npc' in row.zkb:
@@ -97,14 +119,15 @@ key='eve-trajectory-mining/Killmail_Fetching/killmail_scrapes/byregion/10000002/
 # Write SQL query here
 query="""
 SELECT * 
-  FROM s3Object s
- LIMIT 5;
+  FROM s3Object s;
 """
 
 # Let amazon do the api calls
+print('Querying s3 bucket...')
 df = select(bucket, key, query)
 
 # Convert all timestamp strings to numpy.datetime64
+print('Converting DataFrame column value types...')
 df['killmail_time'] = pd.to_datetime(df['killmail_time'],
                                      # Turn errors into NaT
                                      errors='coerce',
@@ -124,13 +147,30 @@ df['victim'] = df['victim'].apply(literal_eval)
 df['attackers'] = df['attackers'].apply(literal_eval)
 df['zkb'] = df['zkb'].apply(literal_eval)
 
+#
+# Open YAML file of typeIDs to get names of items
+# typeIDs.yaml -> dictionary of typeID keys which contain attributes
+# ex. typeIDs[11317] -> {'description': {'en': 'blah', ...}, ...}
+#     typeIDs[11317]['name']['en'] == '800mm Rolled Tungsten Compact Plates'
+#     typeIDs[11317]['groupID'] == 329
+#     groupIDs[329] -> {'name': {'en': 'blah', ...}, ...}
+#     groupIDs[329]['name']['en'] == 'Armor Reinforcer'
+#     
+print('Loading YAML files into memory...')
+typeIDs = load_yaml('../docs/eve_files/typeIDs.yaml')
+groupIDs = load_yaml('../docs/eve_files/groupIDs.yaml')
+# invFlags = load_yaml('../docs/eve_files/invFlags.yaml')
+# invMarketGroups = load_yaml('../docs/eve_files/invMarketGroups.yaml')
+# categoryIDs = load_yaml('../docs/eve_files/categoryIDs.yaml')
+
+
 # Unpack DataFrame subset containing lists and dicts
+print('Unpacking DataFrame values...')
 victim_rows = []
 attacker_rows = []
 a_col = ['final_blow', 'damage_done', 'ship_type_id']
-v_col = ['killmail_time', 'solar_system_id', 'character_id', 'ship_type_id',
-         'HighSlotISK', 'MidSlotISK', 'LowSlotISK']
-
+v_col = ['killmail_time', 'solar_system_id', 'character_id', 
+         'ship_type_id', 'items']
 for v_row, a_rows, k_id in unpack(df):
     if v_row is not None:  # If no character ID, don't append victim
         victim_rows.append(pd.DataFrame(
@@ -150,6 +190,7 @@ for v_row, a_rows, k_id in unpack(df):
                               ) for a_id, a_row in a_rows])
 
 # Save info to file
+print('Writing results to CSV...')
 name = '10000002201505'
 
 # Save victim info to CSV
