@@ -1,0 +1,60 @@
+killmail_id,       killmail_time, solar_system_id, character_id, ship_type_id
+   46643819, 2015-05-15 19:02:00,        30000157,     90000814,          630
+   
+[('Large Shield Extender II',				'Shield Extender'),
+ ('Rapid Light Missile Launcher II',		'Missile Launcher Rapid Light'),
+ ('Caldari Navy Mjolnir Light Missile',		'Light Missile'),
+ ('Damage Control II',						'Damage Control'),
+ ('50MN Cold-Gas Enduring Microwarpdrive',	'Propulsion Module'),
+ ('Large Shield Extender II',				'Shield Extender'),
+ ('Caldari Navy Scourge Light Missile',		'Light Missile'),
+ ('Caldari Navy Inferno Light Missile',		'Light Missile'),
+ ('Rapid Light Missile Launcher II',		'Missile Launcher Rapid Light'),
+ ('Phased Scoped Target Painter',			'Target Painter'),
+ ('Caldari Navy Inferno Light Missile',		'Light Missile'),
+ ('Medium Polycarbon Engine Housing I',		'Rig Navigation'),
+ ('Nanofiber Internal Structure II',		'Nanofiber Internal Structure'),
+ ('Ballistic Control System II',			'Ballistic Control system'),
+ ('Ballistic Control System II',			'Ballistic Control system'),
+ ('Rapid Light Missile Launcher II',		'Missile Launcher Rapid Light'),
+ ('Caldari Navy Inferno Light Missile',		'Light Missile'),
+ ('Caldari Navy Inferno Light Missile',		'Light Missile'),
+ ('Caldari Navy Nova Light Missile',		'Light Missile'),
+ ('Medium Core Defense Field Extender I',	'Rig Shield'),
+ ('Caldari Navy Inferno Light Missile',		'Light Missile'),
+ ('Warp Disruptor II',						'Warp Scrambler'),
+ ('Rapid Light Missile Launcher II',		'Missile Launcher Rapid Light'),
+ ('Medium Core Defense Field Extender I',	'Rig Shield')]
+
+===
+
+killmail_id,       killmail_time, solar_system_id, character_id, ship_type_id
+   46643869, 2015-05-15 19:05:00,        30000157,     90000814,        32872
+   
+[('Caldari Navy Antimatter Charge S',	'Hybrid Charge'),
+ ('Caldari Navy Antimatter Charge S',	'Hybrid Charge'),
+ ('Drone Damage Amplifier II',			'Drone Damage Modules'),
+ ('F85 Peripheral Damage System I',		'Damage Control'),
+ ('Null S',								'Advanced Blaster Charge'),
+ ('Caldari Navy Antimatter Charge S',	'Hybrid Charge'),
+ ('Light Ion Blaster II',				'Hybrid Weapon'),
+ ('J5b Enduring Warp Scrambler',		'Warp Scrambler'),
+ ('Light Ion Blaster II',				'Hybrid Weapon'),
+ ('Caldari Navy Antimatter Charge S',	'Hybrid Charge'),
+ ('Drone Damage Amplifier II',			'Drone Damage Modules'),
+ ('Small Transverse Bulkhead I',		'Rig Armor'),
+ ('5MN Y-T8 Compact Microwarpdrive',	'Propulsion Module'),
+ ('Light Ion Blaster II',				'Hybrid Weapon'),
+ ('X5 Enduring Stasis Webifier',		'Stasis Web'),
+ ('Small Transverse Bulkhead I',		'Rig Armor'),
+ ('Warrior II',							'Combat Drone'),
+ ('Small Transverse Bulkhead I',		'Rig Armor'),
+ ('Light Ion Blaster II',				'Hybrid Weapon'),
+ ('Light Ion Blaster II',				'Hybrid Weapon'),
+ ('Caldari Navy Antimatter Charge S',	'Hybrid Charge'),
+ ('Caldari Navy Antimatter Charge S',	'Hybrid Charge')]
+ 
+===
+ 
+ Long Text Cosine Distance: 0.36390856595585297
+Short Text Cosine Distance: 0.03290845658942918

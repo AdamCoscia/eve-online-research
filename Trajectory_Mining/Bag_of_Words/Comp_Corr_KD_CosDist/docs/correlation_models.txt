@@ -1,0 +1,108 @@
+Final KD vs. Sum of Short Text Cosine Distances
+                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:                      y   R-squared (uncentered):                   0.014
+Model:                            OLS   Adj. R-squared (uncentered):              0.013
+Method:                 Least Squares   F-statistic:                              32.95
+Date:                Fri, 22 Nov 2019   Prob (F-statistic):                    1.07e-08
+Time:                        13:39:02   Log-Likelihood:                         -3350.3
+No. Observations:                2373   AIC:                                      6703.
+Df Residuals:                    2372   BIC:                                      6708.
+Df Model:                           1                                                  
+Covariance Type:            nonrobust                                                  
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.1170      0.020     -5.740      0.000      -0.157      -0.077
+==============================================================================
+Omnibus:                     3618.913   Durbin-Watson:                   1.951
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):          2359712.421
+Skew:                           9.154   Prob(JB):                         0.00
+Kurtosis:                     156.396   Cond. No.                         1.00
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+Final KD vs. Sum of Long Text Cosine Distances
+                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:                      y   R-squared (uncentered):                   0.012
+Model:                            OLS   Adj. R-squared (uncentered):              0.012
+Method:                 Least Squares   F-statistic:                              29.21
+Date:                Fri, 22 Nov 2019   Prob (F-statistic):                    7.15e-08
+Time:                        13:39:02   Log-Likelihood:                         -3352.1
+No. Observations:                2373   AIC:                                      6706.
+Df Residuals:                    2372   BIC:                                      6712.
+Df Model:                           1                                                  
+Covariance Type:            nonrobust                                                  
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.1103      0.020     -5.405      0.000      -0.150      -0.070
+==============================================================================
+Omnibus:                     3615.403   Durbin-Watson:                   1.950
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):          2345259.514
+Skew:                           9.138   Prob(JB):                         0.00
+Kurtosis:                     155.923   Cond. No.                         1.00
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+Avg KD vs. Avg Short Text Cosine Distances
+                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:                      y   R-squared (uncentered):                   0.013
+Model:                            OLS   Adj. R-squared (uncentered):              0.012
+Method:                 Least Squares   F-statistic:                              30.47
+Date:                Fri, 22 Nov 2019   Prob (F-statistic):                    3.77e-08
+Time:                        13:39:02   Log-Likelihood:                         -3351.5
+No. Observations:                2373   AIC:                                      6705.
+Df Residuals:                    2372   BIC:                                      6711.
+Df Model:                           1                                                  
+Covariance Type:            nonrobust                                                  
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.1126      0.020     -5.520      0.000      -0.153      -0.073
+==============================================================================
+Omnibus:                     2614.873   Durbin-Watson:                   1.903
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           266180.805
+Skew:                           5.460   Prob(JB):                         0.00
+Kurtosis:                      53.723   Cond. No.                         1.00
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+
+Avg KD vs. Avg Long Text Cosine Distances
+                                 OLS Regression Results                                
+=======================================================================================
+Dep. Variable:                      y   R-squared (uncentered):                   0.005
+Model:                            OLS   Adj. R-squared (uncentered):              0.005
+Method:                 Least Squares   F-statistic:                              11.86
+Date:                Fri, 22 Nov 2019   Prob (F-statistic):                    0.000584
+Time:                        13:39:02   Log-Likelihood:                         -3360.7
+No. Observations:                2373   AIC:                                      6723.
+Df Residuals:                    2372   BIC:                                      6729.
+Df Model:                           1                                                  
+Covariance Type:            nonrobust                                                  
+==============================================================================
+                 coef    std err          t      P>|t|      [0.025      0.975]
+------------------------------------------------------------------------------
+x1            -0.0705      0.020     -3.444      0.001      -0.111      -0.030
+==============================================================================
+Omnibus:                     2600.160   Durbin-Watson:                   1.898
+Prob(Omnibus):                  0.000   Jarque-Bera (JB):           259324.052
+Skew:                           5.413   Prob(JB):                         0.00
+Kurtosis:                      53.055   Cond. No.                         1.00
+==============================================================================
+
+Warnings:
+[1] Standard Errors assume that the covariance matrix of the errors is correctly specified.
+
+

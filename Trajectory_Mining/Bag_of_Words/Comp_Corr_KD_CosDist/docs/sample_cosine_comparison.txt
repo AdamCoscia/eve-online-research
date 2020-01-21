@@ -1,0 +1,61 @@
+                              Long Text Comparison
+      killmail_id, ship_type_id                  killmail_id, ship_type_id
+         46643819,          630                     46643869,        32872
+[('Large Shield Extender II',				'Caldari Navy Antimatter Charge S')
+ ('Rapid Light Missile Launcher II',		'Caldari Navy Antimatter Charge S')
+ ('Caldari Navy Mjolnir Light Missile',		'Drone Damage Amplifier II')
+ ('Damage Control II',					 	'F85 Peripheral Damage System I')
+ ('50MN Cold-Gas Enduring Microwarpdrive',	'Null S')
+ ('Large Shield Extender II',				'Caldari Navy Antimatter Charge S')
+ ('Caldari Navy Scourge Light Missile',		'Light Ion Blaster II')
+ ('Caldari Navy Inferno Light Missile',		'J5b Enduring Warp Scrambler')
+ ('Rapid Light Missile Launcher II',		'Light Ion Blaster II')
+ ('Phased Scoped Target Painter',			'Caldari Navy Antimatter Charge S')
+ ('Caldari Navy Inferno Light Missile',		'Drone Damage Amplifier II')
+ ('Medium Polycarbon Engine Housing I',		'Small Transverse Bulkhead I')
+ ('Nanofiber Internal Structure II',		'5MN Y-T8 Compact Microwarpdrive')
+ ('Ballistic Control System II',			'Light Ion Blaster II')
+ ('Ballistic Control System II',			'X5 Enduring Stasis Webifier')
+ ('Rapid Light Missile Launcher II',		'Small Transverse Bulkhead I')
+ ('Caldari Navy Inferno Light Missile',		'Warrior II')
+ ('Caldari Navy Inferno Light Missile',		'Small Transverse Bulkhead I')
+ ('Caldari Navy Nova Light Missile',		'Light Ion Blaster II')
+ ('Medium Core Defense Field Extender I',	'Light Ion Blaster II')
+ ('Caldari Navy Inferno Light Missile',		'Caldari Navy Antimatter Charge S')
+ ('Warp Disruptor II',					 	'Caldari Navy Antimatter Charge S')
+ ('Rapid Light Missile Launcher II'			----							)
+ ('Medium Core Defense Field Extender I'	----							)]
+ 
+Cosine Distance: 0.36390856595585297
+
+
+                        Short Text Comparison
+   killmail_id, ship_type_id              killmail_id, ship_type_id
+      46643819,          630                 46643869,        32872
+[('Shield Extender',					'Hybrid Charge'),
+ ('Missile Launcher Rapid Light',		'Hybrid Charge'),
+ ('Light Missile',						'Drone Damage Modules'),
+ ('Damage Control',						'Damage Control'),
+ ('Propulsion Module',					'Advanced Blaster Charge'),
+ ('Shield Extender',					'Hybrid Charge'),
+ ('Light Missile',						'Hybrid Weapon'),
+ ('Light Missile',						'Warp Scrambler'),
+ ('Missile Launcher Rapid Light',		'Hybrid Weapon'),
+ ('Target Painter',						'Hybrid Charge'), 
+ ('Light Missile',						'Drone Damage Modules'),
+ ('Rig Navigation',						'Rig Armor'),
+ ('Nanofiber Internal Structure',		'Propulsion Module'),
+ ('Ballistic Control system',			'Hybrid Weapon'),
+ ('Ballistic Control system',			'Stasis Web'),
+ ('Missile Launcher Rapid Light',		'Rig Armor'),
+ ('Light Missile',						'Combat Drone'),
+ ('Light Missile',						'Rig Armor'),
+ ('Light Missile',						'Hybrid Weapon'),
+ ('Rig Shield',					 		'Hybrid Weapon'),
+ ('Light Missile',						'Hybrid Charge'),
+ ('Warp Scrambler',						'Hybrid Charge'),
+ ('Missile Launcher Rapid Light',		----			),			
+ ('Rig Shield',							----			)]
+
+Cosine Distance: 0.03290845658942918
+
