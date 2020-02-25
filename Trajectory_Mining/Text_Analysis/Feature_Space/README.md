@@ -1,6 +1,5 @@
-# eve-trajectory-mining #
+# eve-trajectory-mining
 
-Last Modified: 09/30/2019
+Last Modified: 01/22/2020
 
------
-
+---

@@ -7,9 +7,14 @@ Updated On: 11/10/2019
 
 """
 # Start timing
+import pandas as pd
+import numpy as np
+import sys
+import os
 import time
 start = time.time()
 total = 0
+
 
 def lap(msg):
     """Records time elapsed."""
@@ -31,13 +36,6 @@ def lap(msg):
         else:
             print(f'(+{elapsed:.3f}s|t:{total:.3f}s) {msg}')
 
-lap("Importing modules...")
-
-import os
-import sys
-
-import numpy as np
-import pandas as pd
 
 # Sequentially load CSV's from file
 lap("Loading CSV data from data/All/by_region...")
@@ -66,7 +64,7 @@ df_victims_slots.to_csv('data/all_victims_slots.csv')
 # Merging data sets and validating results
 lap("Merging data sets...")
 df_victims_items = pd.read_csv('data/all_victims_items.csv', header=0)
-df_victims_all = pd.merge(df_victims_items, df_victims_slots, how='outer', 
+df_victims_all = pd.merge(df_victims_items, df_victims_slots, how='outer',
                           on=['killmail_id'], suffixes=('_items', '_slots'),
                           indicator=True)
 

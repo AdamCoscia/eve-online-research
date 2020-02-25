@@ -19,9 +19,16 @@ Updated On: 11/09/2019
 
 """
 # Start timing
+import yaml
+import pandas as pd
+import numpy as np
+import sys
+import os
+from ast import literal_eval
 import time
 start = time.time()
 total = 0
+
 
 def lap(msg):
     """Records time elapsed."""
@@ -42,16 +49,6 @@ def lap(msg):
             print(f'(+{elapsed:.3f}s|t:{total/60:.2f}m) {msg}')
         else:
             print(f'(+{elapsed:.3f}s|t:{total:.3f}s) {msg}')
-
-lap("Importing modules...")
-
-from ast import literal_eval
-import os
-import sys
-
-import numpy as np
-import pandas as pd
-import yaml
 
 
 def load_yaml(file_loc, encoding='utf-8'):
@@ -78,7 +75,7 @@ def unpack(data: pd.DataFrame):
         # lo_flags = {11, 12, 13, 14, 15, 16, 17, 18}
         # mi_flags = {19, 20, 21, 22, 23, 24, 25, 26}
         # hi_flags = {27, 28, 29, 30, 31, 32, 33, 34}
-        itemList=[]
+        itemList = []
         for item in items:
             itemName, groupName = 'Missing', 'Missing'
             try:
@@ -145,9 +142,9 @@ def unpack(data: pd.DataFrame):
 
 
 # Specify S3 parameters and SQL query
-bucket='dilabevetrajectorymining'
-key='eve-trajectory-mining/Killmail_Fetching/killmail_scrapes/byregion/10000002/10000002201505.csv'
-query="""
+bucket = 'dilabevetrajectorymining'
+key = 'eve-trajectory-mining/Killmail_Fetching/killmail_scrapes/byregion/10000002/10000002201505.csv'
+query = """
 SELECT * 
   FROM s3Object s
  LIMIT 5
@@ -164,7 +161,7 @@ SELECT *
 #     typeIDs[11317]['groupID'] == 329
 #     groupIDs[329] -> {'name': {'en': 'blah', ...}, ...}
 #     groupIDs[329]['name']['en'] == 'Armor Reinforcer'
-#     
+#
 lap("Loading YAML files into memory...")
 root = "../Trajectory_Mining/docs/eve files"  # YAML file location
 typeIDs = load_yaml(os.path.join(root, 'typeIDs.yaml'))
@@ -210,25 +207,25 @@ for root, dirs, files in os.walk("../Killmail_Fetching/killmail_scrapes/byregion
         victim_rows = []
         attacker_rows = []
         a_col = ['final_blow', 'damage_done', 'ship_type_id']
-        v_col = ['killmail_time', 'solar_system_id', 'character_id', 
+        v_col = ['killmail_time', 'solar_system_id', 'character_id',
                  'ship_type_id', 'items']
         for v_row, a_rows, k_id in unpack(df):
             if v_row is not None:  # If no character ID, don't append victim
                 victim_rows.append(pd.DataFrame(
-                                       [v_row], 
-                                       columns=v_col,
-                                       index=pd.Index([k_id], name='killmail_id')
-                                   ))
+                    [v_row],
+                    columns=v_col,
+                    index=pd.Index([k_id], name='killmail_id')
+                ))
             if a_rows:
                 attacker_rows.extend([pd.DataFrame(
-                                          [a_row], 
-                                          columns=a_col,
-                                          index=pd.MultiIndex.from_tuples(
-                                                    [(k_id, a_id)],
-                                                    names=('killmail_id', 
-                                                           'character_id')
-                                                )
-                                      ) for a_id, a_row in a_rows])
+                    [a_row],
+                    columns=a_col,
+                    index=pd.MultiIndex.from_tuples(
+                        [(k_id, a_id)],
+                        names=('killmail_id',
+                               'character_id')
+                    )
+                ) for a_id, a_row in a_rows])
 
         # Concat victim_rows together
         # print("> Concating victim rows ", end="\r")
