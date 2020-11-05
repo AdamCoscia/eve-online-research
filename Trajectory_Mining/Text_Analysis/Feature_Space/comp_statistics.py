@@ -55,9 +55,25 @@ def stats_table(df1, df2):
         kd_final = gp2['kd_ratio'].iloc[-1]  # get final K/D
         s = gp1["Euclidean_Distance"]  # euclidean distances
         rows.append([cid, s.var(), s.max()-s.min(), s.count(), s.mean(), 
-                     s.std(), kd_mean, kd_final])
-    return pd.DataFrame(data=rows, columns=['character_id', 'var', 'range', 
-                        'count', 'mean', 'std_dev', 'avg_kd', 'final_kd'])
+                     s.std(), kd_mean, kd_final])  # append record to list
+    cols = ['character_id', 'var', 'range', 'count', 'mean', 'stddev', 
+            'avgkd', 'finalkd']
+    df = pd.DataFrame(data=rows, columns=cols)  # create table from list
+    var = df['var']  # get variance series
+    sc_var = (var - var.mean()) / var.std()  # scaled variance
+    rng = df['range']  # get range series
+    sc_rng = (rng - rng.mean()) / rng.std()  # scaled range
+    avgkd = df['avgkd']  # get average kd series
+    sc_avgkd = (avgkd - avgkd.mean()) / avgkd.std()  # scaled average kd
+    finalkd = df['finalkd']  # get average kd series
+    sc_finalkd = (finalkd - finalkd.mean()) / finalkd.std()  # scaled final kd
+    df['svar'] = sc_var  # add new series to table
+    df['srange'] = sc_rng
+    df['savgkd'] = sc_avgkd
+    df['sfinalkd'] = sc_finalkd
+    cols = ['character_id', 'count', 'mean', 'stddev', 'var', 'svar', 
+            'range', 'srange', 'avgkd', 'savgkd', 'finalkd', 'sfinalkd']
+    return df[cols]  # reorder columns
 
 
 # Load CSVs from local file
