@@ -4,7 +4,7 @@
 
 ## EVE Trajectory Mining
 
-This application was developed and designed by Adam Coscia. Any questions or comments please email <acoscia@stevens.edu>.
+This application was developed and designed by Adam Coscia. Any questions or comments please email <acoscia125@gmail.com>.
 
 Before editing, please read this document as well as [CONTRIBUTING.md](CONTRIBUTING.md) for how to access/modify the files in the repository. Thank you!!
 
