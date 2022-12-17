@@ -12,4 +12,5 @@ in EVE Online.
 
 2023 - EVE Online Community Collapse
 
+- Investigating changes in communities via social network analysis.
 - Collaborators: Aron Lindberg, Jingyi Sun, Adam Coscia
