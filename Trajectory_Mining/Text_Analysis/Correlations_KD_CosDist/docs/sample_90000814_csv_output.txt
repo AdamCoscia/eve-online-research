@@ -1,0 +1,6 @@
+   killmail_id        killmail_time  solar_system_id  character_id  ship_type_id                                              items  cos_dist_lt  cos_dist_st
+0     46643819  2015-05-15 19:02:00         30000157      90000814           630  [(Large Shield Extender II, Shield Extender), ...          NaN          NaN
+1     46643869  2015-05-15 19:05:00         30000157      90000814         32872  [(Caldari Navy Antimatter Charge S, Hybrid Cha...     0.363909     0.032908
+2     46644325  2015-05-15 19:26:00         30000157      90000814         16236  [(Faint Scoped Warp Disruptor, Warp Scrambler)...     0.231427     0.122730
+3     46673199  2015-05-16 22:03:00         30000184      90000814         17932  [(Republic Fleet EMP S, Projectile Ammo), (150...     0.264858     0.092770
+4     46723050  2015-05-19 03:01:00         30000180      90000814         33475                                                 []     0.000000     0.000000
